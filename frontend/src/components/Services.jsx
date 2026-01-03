@@ -36,8 +36,13 @@ const Services = () => {
           {businessUnits.map((unit, index) => (
             <div
               key={unit.id}
-              className="bg-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-cyan-500 transition-all duration-300 group hover:shadow-2xl hover:shadow-cyan-500/20"
+              className="bg-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-cyan-500 transition-all duration-300 group hover:shadow-2xl hover:shadow-cyan-500/20 relative"
             >
+              {/* Number Badge */}
+              <div className="absolute top-6 right-6 w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center">
+                <span className="text-cyan-400 font-bold text-lg">0{index + 1}</span>
+              </div>
+
               {/* Icon & Title */}
               <div className="flex items-start space-x-4 mb-6">
                 <div className="bg-cyan-500/10 group-hover:bg-cyan-500 rounded-xl p-4 transition-colors duration-300">
@@ -45,7 +50,7 @@ const Services = () => {
                     {getIcon(unit.icon)}
                   </div>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 pr-12">
                   <h3 className="text-2xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">
                     {unit.name}
                   </h3>
@@ -67,11 +72,6 @@ const Services = () => {
                     <span className="text-slate-300">{service}</span>
                   </div>
                 ))}
-              </div>
-
-              {/* Number Badge */}
-              <div className="absolute top-6 right-6 w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center">
-                <span className="text-cyan-400 font-bold text-lg">0{index + 1}</span>
               </div>
             </div>
           ))}
